@@ -1,10 +1,24 @@
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    // callback
+    // function(data) { this.state.list: data//from youtube ajax request };
+
+    
     this.state = {
       list: props.sampleData,
       playing: props.sampleData[Math.floor(Math.random() * props.sampleData.length)]
-    };
+    };    // this.state = {
+      // list: props.youTubeData({ 'query': 'how great is lebron james', 'maxResults': 5, 'key': window.YOU_TUBE_API_KEY}, function() { console}),
+    // {console.log(props)}
+    // {console.log(props.sampleData)}
+    // {console.log(props.youTubeData)}
+    //   playing: props.sampleData[Math.floor(Math.random() * props.sampleData.length)]
+    // };
+    console.log(props);
+    props.youTubeData({ 'q': '', 'maxResults': 5, 'key': window.YOU_TUBE_API_KEY}, function(data) { this.setState({ list: data }); });
+    
   }
 
   handleClick(video) {
