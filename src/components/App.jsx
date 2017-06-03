@@ -27,7 +27,7 @@ class App extends React.Component {
     </div>
     );
   }
-
+  
   // changePlayer(video) {
   //   this.setState({
   //     playing: video
