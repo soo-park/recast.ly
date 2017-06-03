@@ -1,17 +1,25 @@
-class VideoList extends React.Component { 
-  constructor(props) {
-    super(props);
-    this.list = this.props.videos.map( (vid, i) => <VideoListEntry key={i} video={vid} /> );
-  }
+// // Stateful solution
+// class VideoList extends React.Component { 
+//   constructor(props) {
+//     super(props);
+//     this.list = this.props.videos.map( (vid, i) => <VideoListEntry key={i} video={vid} /> );
+//   }
 
-  render() {
-    return (
-      <div className="video-list media">
-        {this.list}
-      </div>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <div className="video-list media">
+//         {this.list}
+//       </div>
+//     );
+//   }
+// }
+
+// Stateless solution
+var VideoList = (props) => (
+  <div className="video-list media">
+    {props.videos.map( (vid, i) => <VideoListEntry key={i} video={vid} handleClick={props.handleClick} /> )}
+  </div>
+);
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated

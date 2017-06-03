@@ -6,25 +6,33 @@ class App extends React.Component {
       playing: props.sampleData[Math.floor(Math.random() * props.sampleData.length)]
     };
   }
+
+  handleClick(video) {
+    this.setState({
+      playing: video
+    });
+  }  
+
   render() {
     return (
+
     <div>
       <Nav />
       <div className="col-md-7">
         <VideoPlayer appState={this.state} video={this.state.playing}/>
       </div>
       <div className="col-md-5">
-        <VideoList videos={this.state.list}/>
+        <VideoList videos={this.state.list} handleClick={this.handleClick.bind(this)}/>
       </div>
     </div>
     );
   }
 
-  changePlayer(video) {
-    this.setState({
-      playing: video
-    });
-  }
+  // changePlayer(video) {
+  //   this.setState({
+  //     playing: video
+  //   });
+  // }
 }
 
 /*
